@@ -1,0 +1,59 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col-lg-8" style="margin: auto; margin-top: 75px;">
+                <div class="card">
+                  <div class="card-body" style="background-color: aliceblue; border-radius: 7px; border: 3px solid #B0C4DE;">
+                      {% if data_user[2] == 0 %}
+                      <form role="form" action="{{ url_for('koreksi_pr') }}" method="POST">
+                        <div>
+                          <input type="hidden" readonly=readonly style="background-color: white; color: darkslategray; border: 3px solid aliceblue; border-radius: 10px; width:100%; padding: 20px;" id="username" name="username" value="{{ data_pr[1] }}">
+                          <input type="hidden" readonly=readonly style="background-color: white; color: darkslategray; border: 3px solid aliceblue; border-radius: 10px; width:100%; padding: 20px;" id="kategori" name="kategori" value="{{ data_pr[2] }}">
+                          <input type="hidden" readonly=readonly style="background-color: white; color: darkslategray; border: 3px solid aliceblue; border-radius: 10px; width:100%; padding: 20px;" id="pertanyaan" name="pertanyaan" value="{{ data_pr[3] }}">
+                          <input type="hidden" style="background-color: white; color: darkslategray; border: 3px solid aliceblue; border-radius: 10px; width:100%; padding: 20px;" id="penjawab" name="penjawab" value="{{ data_pr[4] }}">
+                          <div class="form-group">
+                            <label for="jawaban" style="color: darkslategray; margin-left: 8px;"><b>Jawaban</b></label><br>
+                            <textarea readonly style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px;  width:100%; height: 260px; padding: 10px;" id="jawaban" name="jawaban" rows="5" value="">{{ data_pr[5] }}</textarea>
+                          </div>
+                          <input type="hidden" class="form-control" id="tangga_jawab" name="tangga_jawab">
+                          <div class="form-group">
+                            <label for="ranking" style="color: darkslategray; margin-left: 8px;"><b>Status</b></label><br>
+                            <select style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px;  min-width: 30%; padding: 10px;" id="ranking" name="ranking" placeholder="">
+                              <option style="background-color: white; color: darkslategray;" value=""></option>
+                              <option style="background-color: white; color: darkslategray;" value="Jawaban Terverifikasi">Jawaban Terverifikasi</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="keterangan" style="color: darkslategray; margin-left: 8px;"><b>Catatan Admin</b></label><br>
+                            <textarea style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; min-width: 64%; width: 50%; padding: 10px;" id="keterangan" name="keterangan" value="{{ data_pr[8] }}"></textarea>
+                          </div>
+                          <input type="hidden" class="form-control" id="no" name="no" value="{{ data_pr[0] }}">
+                        </div>
+                        <!-- /.card-body -->
+        
+                        <div class="card-footer">
+                            <div style="float: right;">
+                                <input TYPE="button" class="btn btn-danger btn-sm" style=" width: 80px;"  VALUE="Cancel" onClick="history.go(-1);">
+                                <button type="submit" class="btn btn-success btn-sm" onclick="myFunction()">Save</button>
+                            </div>
+                            <script>
+                                function myFunction() {
+                                  alert("Success! Answer Has Been Corrected.");
+                                }
+                            </script>
+                        </div>
+                      </form>
+                      {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+            <!--End Row-->
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}

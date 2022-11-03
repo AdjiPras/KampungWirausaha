@@ -1,0 +1,105 @@
+{% include 'header.html' %} 
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+              <div type="button" class="btn btn-block" style="width: 100%; font-size: 17px; color: darkslategray; background-color: aliceblue; padding: 10px; margin: auto; margin-top: 20px; border-radius: 20px; border: 1px solid #A9A9A9;">
+                <span class="glyphicon glyphicon glyphicon-stats"></span>
+                <a href="{{ url_for('sop') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">SOP Pengerjaan</a>
+                {% if data_user[2] == 0 %}
+                <a href="{{ url_for('freelancer') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">Data Pengguna</a>
+                {% endif %}
+                <a href="{{ url_for('laporan') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">Laporan</a>
+                <a class="btn btn-dark btn-sm dropdown-toggle" href="#" style="margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="border-radius: 10px;">
+                  <a class="dropdown-item" href="#!" style="font-size: 10px;">Contact</a>
+                  <a class="dropdown-item" href="{{ url_for('pertanyaan') }}" style="font-size: 10px;">Rekap</a>
+                  <a class="dropdown-item" href="#!" style="font-size: 10px;">Our Teams</a>
+                  <a class="dropdown-item" href="{{ url_for('logout') }}" style="font-size: 10px;">Sign Out</a>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <a href="{{ url_for('beranda') }}" type="button" class="btn btn-dark btn-sm" style="margin-left: 45px; margin-top: 5px; width: 60px; margin: auto;">Back</a>
+                </div>
+                <div>
+                    <p type="button" class="btn btn-block" style="width: 73%; color: #343a40; background-color: white; margin: auto;">Tabel Rekap Data</p>
+                </div>
+                  <div class="col-lg-14" style="margin: auto;">
+                    <div class="card"  style="background-color: #343a40; border-radius: 7px; border: 4px solid #B0C4DE;">
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table id="example" class="table dt-responsive nowrap">
+                            <thead>
+                              <tr style="text-align: center; color: aliceblue;">
+                                <th>No</th>
+                                <th>Username</th>
+                                <th>Kategori</th>
+                                <th>Pertanyaan</th>
+                                <th>Penjawab</th>
+                                <th>Jawaban</th>
+                                <th>Time</th>
+                                <th>Ranking</th>
+                                <th>Catatan</th>
+                                <th>Action</th>
+                                <th colspan="2">Koreksi</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% set no=namespace(value=1) %}
+                              {% for row in container_rekap %}
+                              <tr style=" color: aliceblue;">
+                                <td style="text-align: center;">{{ no.value }}</td>
+                                {% set no.value=no.value+1 %}
+                                <td>{{ row[1] }}</td>
+                                <td style="text-align: center;">{{ row[2] }}</td>
+                                <td>
+                                  <div>
+                                    <textarea readonly  style="width: 380px; height: 180px; color: white; background-color: #343a40; border: 3px solid  #B0C4DE; border-radius: 7px; padding: 20px;">{{ row[3] }}</textarea>
+                                  </div>
+                                </td>
+                                <td style="text-align: center;">{{ row[4] }}</td>
+                                <td>
+                                  <div>
+                                    <textarea readonly  style="width: 380px; height: 180px; color: white; background-color: #343a40; border: 3px solid  #B0C4DE; border-radius: 7px; padding: 20px;">{{ row[5] }}</textarea>
+                                  </div>
+                                </td>
+                                <td style="text-align: center;">{{ row[6] }}</td>
+                                <td style="text-align: center;">{{ row[7] }}</td>
+                                <td>
+                                  <div>
+                                    <textarea readonly  style="width: 380px; height: 180px; color: white; background-color: #343a40; border: 3px solid  #B0C4DE; border-radius: 7px; padding: 20px;">{{ row[8] }}</textarea>
+                                  </div>
+                                </td>
+                                {% data_user[2] == 0 %}
+                                <td style="text-align: center;">{{ row[9] }}<a href="{{ url_for('answer', no = row[0]) }}" class="btn btn-success btn-sm" role="button">Jawab</a><br>
+                                  <a href="{{ url_for('delete_pertanyaan', no = row[0]) }}" class="btn btn-dark btn-sm" role="button" style="margin-top: 3px;">Hapus</a></td>
+                                <td style="text-align: center;">{{ row[10] }}<a href="{{ url_for('koreksi_pertanyaan', no = row[0]) }}" class="btn btn-warning btn-sm" role="button">Koreksi</a></td>
+                                {% endif %}
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+        
+              <!--start overlay-->
+                  <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+        
+            </div>
+            <!-- End container-fluid-->
+            
+            </div><!--End content-wrapper-->
+           <!--Start Back To Top Button-->
+            <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+            <!--End Back To Top Button-->
+            </div>
+            </div>
+
+        
+{% include 'footer.html' %}

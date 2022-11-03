@@ -1,0 +1,110 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+          <div type="button" class="btn btn-block" style="width: 75%; font-size: 17px; color: darkslategray; background-color:  aliceblue; padding: 10px; margin: auto; margin-top: 20px; border-radius: 20px; border: 3px solid #B0C4DE;">
+            <span class="glyphicon glyphicon glyphicon-stats"></span>
+            <div style="display: block; margin: auto;">
+                <img src="{{ url_for('static', filename='assets/images/Logo-panjang.png')}}" style="width: 40%; height: auto;">
+            </div>
+            <a href="{{ url_for('sop') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">SOP Pengerjaan</a>
+            {% if data_user[2] == 0 %}
+            <a href="{{ url_for('freelancer') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">Data Pengguna</a>
+            {% endif %}
+            <a href="{{ url_for('laporan') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">Laporan</a>
+            <a class="btn btn-dark btn-sm dropdown-toggle" href="#" style="margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              More
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="border-radius: 10px;">
+              <a class="dropdown-item" href="http://wa.me/082302529354" style="font-size: 10px;">Contact</a>
+              <a class="dropdown-item" href="{{ url_for('logout') }}" style="font-size: 10px;">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Row-->
+        <!-- NAVBAR MENU -->
+            <div style="margin-top: 10px;">
+                <a href="{{ url_for('beranda') }}" class="btn btn-dark btn-block btn-sm" style="width: 60px; font-size: 10px; color: aliceblue; margin: auto; border-radius: 20px;">Back</a>
+            </div>
+            <div style="margin-top: 10px;">
+                <a href="{{ url_for('insert_freelancer') }}" class="btn btn-success btn-block btn-sm" style="width: 170px; font-size: 10px; color: aliceblue; background: #3CB371; margin: auto; border-radius: 20px;">Tambah Data</a>
+            </div> 
+            <div class="container-fluid">
+                <div class="col-lg-10" style="background-color: aliceblue; border-radius: 7px; margin: auto; margin-top: 10px; border: 3px solid #B0C4DE;">
+                    <div style="margin-top: 10px; padding: 20px;">
+                        <p type="button" class="btn btn-block" style="width: 70%; font-size: 9px; color: darkslategray; background-color: #FFD700; margin: auto; border-radius: 20px;">Notes: Akses Khusus Admin</p>
+                    </div>
+                    <!--<div style="margin-bottom: 10px;">-->
+                    <!--    <a href="{{ url_for('beranda') }}" type="button" class="btn btn-dark btn-block btn-sm" style="border-radius: 20px; margin: auto; font-size: 9px; width: 60px;">Back</a>-->
+                    <!--</div>-->
+                    <div class="row">
+                        {% for row in container_freelancer %}
+                        <div class="col-lg-3" style="margin: auto;">
+                          <div class="card" style="background-color: aliceblue; border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <div class="btn btn-sm btn-block" style="width: 90%; margin: auto; text-align: center; border-radius: 20px; padding: 5px;">
+                                    <a style=" margin-top: 5px; margin: auto; color: darkslategray; font-family: system-ui; font-size: 12px;" role="button"><b>{{ row[3] }}</b></a>
+                                </div>
+                                <hr color="#DCDCDC">
+                                <div class="btn btn-block" style=" text-align: center;">
+                                    <img src="{{ url_for('static', filename='assets/images/user.png')}}" style="width: 30%; height: auto;">
+                                </div>
+                                <div style="margin: auto; margin-top: 10px;">
+                                    <table class="btn btn-light btn-block" style="text-align: center;">
+                                      <tr>
+                                        <td style="width: 90px; color: darkslategray; font-family: system-ui;">ID Pengguna</td> <td><p>:</p></td>
+                                        <td style="color: darkslategray;  font-family: system-ui; margin-top: 10px; text-align: center;" role="button">{{ row[0] }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="width: 80px; color: darkslategray; font-family: system-ui;">Username</td> <td><p>:</p></td>
+                                        <td style="color: darkslategray;  font-family: system-ui; margin-top: 10px; text-align: center;" role="button">{{ row[1] }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="width: 80px; color: darkslategray; font-family: system-ui;">Password</td> <td><p>:</p></td>
+                                        <td style="color: darkslategray;  font-family: system-ui; margin-top: 10px; text-align: center;" role="button">{{ row[2] }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="width: 80px; color: darkslategray; font-family: system-ui;">Tipe Akses</td> <td><p>:</p></td>
+                                        <td style="color: darkslategray;  font-family: system-ui; margin-top: 10px; text-align: center;" role="button">{{ row[4] }}</td>
+                                      </tr>
+                                    </table>
+                                </div>
+                              </div>
+                              <hr color="#DCDCDC">
+                              <div class="btn btn-block" style="margin: auto; text-align: center;">
+                                <a href="{{ url_for('update_freelancer', id_freelancer = row[0]) }}" class="btn btn-dark btn-sm" role="button" style="border-radius: 20px; width: 70px;">Edit</a>
+                                <a class="btn btn-danger btn-sm" style="border-radius: 20px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Hapus
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: #343a40;">
+                                  <p style="text-align: center; font-size: 12px;">Yakin Untuk Hapus  ?</p>
+                                  <a class="btn btn-danger btn-sm" href="{{ url_for('delete_freelancer', id_freelancer = row[0]) }}" style="font-size: 10px; margin-left: 26px;">Lanjut Hapus</a><br>
+                                  <a class="btn btn-light btn-sm" href="{{ url_for('freelancer') }}" style="font-size: 10px; margin-left: 40px; margin-top: 5px;">Batalkan</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+    <!--start overlay-->
+      <div class="overlay toggle-menu">
+          
+      </div>
+    <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+    </div>
+    <!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top" style="background-color: #343a40;"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+{% include 'footer.html' %}

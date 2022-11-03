@@ -1,0 +1,67 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col-lg-6" style="margin: auto; margin-top: 50px;">
+                <div class="card">
+                  <div class="card-body" style="background-color: aliceblue; border-radius: 7px; border: 3px solid #B0C4DE;">
+                        <form role="form" action="{{ url_for('insert_pertanyaan') }}" method="POST">
+                          <div class="card-body">
+                            <input type="hidden" name="no" class="form-control">
+                            <div class="form-group">
+                              <label for="username" style="color: darkslategray; margin-left: 8px;">Username</label><br>
+                              <input type="text" style="background-color: white; color: darkslategray;  border: 1px solid #D3D3D3; border-radius: 7px; min-width:30%; padding: 10px;" id="username" name="username">
+                            </div>
+                            <div class="form-group">
+                              <label for="kategori" style="color: darkslategray; margin-left: 8px;"><b>Kategori</b></label><br>
+                              <select style="background-color: white; color: darkslategray;  border: 1px solid #D3D3D3; border-radius: 7px; min-width:30%; padding: 10px;" id="kategori" name="kategori" placeholder="Masukkan kategori...">
+                                <option style="background-color: white; color: darkslategray;" value="">Pilih Kategori :</option>
+                                <option style="background-color: white; color: darkslategray;" value="Makanan">Makanan</option>
+                                <option style="background-color: white; color: darkslategray;" value="Minuman">Minuman</option>
+                                <option style="background-color: white; color: darkslategray;" value="Transport">Transport</option>
+                                <option style="background-color: white; color: darkslategray;" value="Manufaktur">Manufaktur</option>
+                                <option style="background-color: white; color: darkslategray;" value="Pakaian">Pakaian</option>
+                                <option style="background-color: white; color: darkslategray;" value="Desain">Desain</option>
+                                <option style="background-color: white; color: darkslategray;" value="Pariwisata">Pariwisata</option>
+                                <option style="background-color: white; color: darkslategray;" value="Teknologi">Teknologi</option>
+                                <option style="background-color: white; color: darkslategray;" value="Online Shop">Online Shop</option>
+                                <option style="background-color: white; color: darkslategray;" value="Periklanan">Periklanan</option>
+                                <option style="background-color: white; color: darkslategray;" value="Artikel SEO">Artikel SEO</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="pertanyaan" style="color: darkslategray; margin-left: 8px;"><b>Pertanyaan</b></label><br>
+                              <textarea style="background-color: white; color: darkslategray;  border: 1px solid #D3D3D3; border-radius: 7px; width:100%; height: 300px; padding: 10px;" id="pertanyaan" name="pertanyaan" rows="5" placeholder=""></textarea>
+                            </div>
+                            <input type="hidden" class="form-control" id="tangga_jawab" name="tangga_jawab">
+                            <input type="hidden" readonly=readonly style="background-color: white; color: darkslategray; border: 3px solid steelblue; border-radius: 10px; width:100%; padding: 20px;" id="penjawab" name="penjawab" placeholder="-">
+                            <input type="hidden" style="background-color: white; color: darkslategray; border: 3px solid steelblue; border-radius: 10px; width:100%; padding: 20px;" readonly=readonly id="jawaban" name="jawaban" rows="5" placeholder="-">
+                            <input type="hidden" style="background-color: white; color: darkslategray; border: 3px solid steelblue; border-radius: 10px; width:100%; padding: 20px;" readonly=readonly id="keterangan" name="keterangan" rows="3" placeholder="">
+                          </div>
+                          <!-- /.card-body -->
+            
+                          <div class="card-footer">
+                            <div style="float: right;">
+                                <input TYPE="button" class="btn btn-danger btn-sm" style=" width: 80px;"  VALUE="Cancel" onClick="history.go(-1);">
+                                <button type="submit" class="btn btn-success btn-sm" onclick="myFunction()">Add</button>
+                            </div>
+                            <script>
+                            function myFunction() {
+                              alert("Success! Question added successfully.");
+                            }
+                            </script>
+                            
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             </div>
+              <!--End Row-->
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}

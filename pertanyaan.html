@@ -1,0 +1,106 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="col-sm-14" style="margin: auto;">
+          <div class="container-fluid">
+            <div type="button" class="btn btn-block" style="width: 75%; font-size: 17px; color: darkslategray; background-color: aliceblue; padding: 10px; margin: auto; margin-top: 20px; border-radius: 20px; border: 1px solid #A9A9A9;">
+                <span class="glyphicon glyphicon glyphicon-stats"></span>
+                <div style="display: block; margin: auto;">
+                    <img src="{{ url_for('static', filename='assets/images/Logo-panjang.png')}}" style="width: 40%; height: auto;">
+                </div>
+                <a href="{{ url_for('sop') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">SOP Pengerjaan</a>
+                {% if data_user[2] == 0 %}
+                <a href="{{ url_for('freelancer') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">Data Pengguna</a>
+                {% endif %}
+                <a href="{{ url_for('laporan') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray;">Laporan</a>
+                <a class="btn btn-dark btn-sm dropdown-toggle" href="#" style="margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="border-radius: 10px;">
+                  <a class="dropdown-item" href="#!" style="font-size: 10px;">Contact</a>
+                  {% if data_user[2] == 0 %}
+                  <!--<a class="dropdown-item" href="{{ url_for('pertanyaan') }}" style="font-size: 10px;">Rekap</a>-->
+                  {% endif %}
+                  <a class="dropdown-item" href="#!" style="font-size: 10px;">Our Teams</a>
+                  <a class="dropdown-item" href="{{ url_for('logout') }}" style="font-size: 10px;">Sign Out</a>
+                </div>
+                <div style="margin-top: 10px; margin-bottom: 10px;">
+                    <a href="{{ url_for('beranda') }}" class="btn btn-dark btn-block btn-sm" style="width: 60px; font-size: 10px; color: aliceblue; margin: auto; border-radius: 20px;">Back</a>
+                </div>
+              </div><!-- /.container-fluid -->
+              <hr>
+            <h2 type="button" class="btn btn-block" style="color: #343a40; background-color: aliceblue; font-family: system-ui; font-size: 15px;  margin: auto;">Rekap Data</h2><br>
+            <div class="col-lg-16" style="margin: auto;  color: aliceblue;">
+                <div class="card"  style="background-color: #343a40;">
+                  <div class="card-body">
+                    <div class="table-responsive" style=" font-family: system-ui; font-size: 12px;">
+                      <table id="example" class="table dt-responsive nowrap">
+                        <thead>
+                          <tr style="text-align: center; color: aliceblue; font-family: system-ui; font-size: 20px;">
+                            <th>No</th>
+                            <th>Username</th>
+                            <th>Kategori</th>
+                            <th>Pertanyaan</th>
+                            <th>Penjawab</th>
+                            <th>Jawaban</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Catatan</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% set no=namespace(value=1) %}
+                          {% for row in container_pertanyaan %}
+                          <tr style=" color: aliceblue;">
+                            <td style="text-align: center;">{{ no.value }}</td>
+                            {% set no.value=no.value+1 %}
+                            <td style="text-align: center; font-size: 12px;">{{ row[1] }}</td>
+                            <td style="text-align: center; font-size: 12px;">{{ row[2] }}</td>
+                            <td>
+                              <div>
+                                <textarea readonly  style="width: 350px; height: 180px; color: white; background-color: #343a40; border: 1px solid	#D3D3D3; border-radius: 7px; padding: 15px; font-size: 12px;">{{ row[3] }}</textarea>
+                              </div>
+                            </td>
+                            <td style="text-align: center; font-size: 12px;">{{ row[4] }}</td>
+                            <td>
+                              <div>
+                                <textarea readonly  style="width: 350px; height: 180px; color: white; background-color: #343a40; border: 1px solid	#D3D3D3; border-radius: 7px; padding: 15px; font-size: 12px;">{{ row[5] }}</textarea>
+                              </div>
+                            </td>
+                            <td style="text-align: center; font-size: 12px;">{{ row[6] }}</td>
+                            <td style="text-align: center; font-size: 12px;">{{ row[7] }}</td>
+                            <td>
+                              <div>
+                                <textarea readonly  style="width: 380px; height: 180px; color: white; background-color: #343a40; border: 1px solid	#D3D3D3; border-radius: 7px; padding: 15px; font-size: 12px;">{{ row[8] }}</textarea>
+                              </div>
+                            </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!--End Row-->
+    </div>
+
+    <!--start overlay-->
+      <div class="overlay toggle-menu">
+          
+      </div>
+    <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+    <!--</div>-->
+    <!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top" style="background-color: #343a40;"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+{% include 'footer.html' %}

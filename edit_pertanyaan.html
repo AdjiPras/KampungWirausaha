@@ -1,0 +1,57 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col-lg-6" style="margin: auto;">
+                <div class="card">
+                  <div class="card-body" style="background-color: aliceblue; border-radius: 7px; border: 3px solid #B0C4DE;">
+                      <form role="form" action="{{ url_for('answer_pr') }}" method="POST">
+                        <div>
+                          <input type="hidden" readonly=readonly style="background-color: white; color: darkslategray; border: 3px solid aliceblue; border-radius: 10px; width:100%; padding: 20px;" id="username" name="username" value="{{ data_pr[1] }}">
+                          <input type="hidden" readonly=readonly style="background-color: white; color: darkslategray; border: 3px solid aliceblue; border-radius: 10px; width:100%; padding: 20px;" id="kategori" name="kategori" value="{{ data_pr[2] }}">
+                          <div class="form-group">
+                            <label for="pertanyaan" style="color: darkslategray; margin-left: 8px;"><b>Pertanyaan</b></label>
+                            <textarea readonly style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; height: 100px; padding: 10px;" id="pertanyaan" name="pertanyaan" rows="5" value="">{{ data_pr[3] }}</textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="penjawab" style="color: darkslategray; margin-left: 8px;"><b>Penjawab</b></label><br>
+                            <input type="text" style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:40%; padding: 10px;" id="penjawab" name="penjawab" value="{{ data_pr[4] }}" placeholder="Masukkan Nama Anda...">
+                          </div>
+                          <div class="form-group">
+                            <label for="jawaban" style="color: darkslategray; margin-left: 8px;"><b>Jawaban</b></label>
+                            <textarea style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; height: 260px; padding: 10px;" id="jawaban" name="jawaban" rows="5" value="" placeholder="">{{ data_pr[5] }}</textarea>
+                            <div style="margin-left: 10px;">
+                              <p style="color: darkslategray; font-family: system-ui; font-size: 10px;"><b>Format:</b></p>
+                              <img src="{{ url_for('static', filename='assets/images/format.jpg' ) }}" style="width: 250px; height: 250px;">
+                            </div>
+                          </div>
+                          <input type="hidden" class="form-control" id="tangga_jawab" name="tangga_jawab">
+                          <input type="hidden" style="background-color: white; color: darkslategray; border: 3px solid steelblue; border-radius: 10px; width:100%; padding: 10px;" id="keterangan" name="keterangan" value="{{ data_pr[8] }}">
+                          <input type="hidden" class="form-control" id="no" name="no" value="{{ data_pr[0] }}">
+                        </div>
+                        <!-- /.card-body -->
+    
+                        <div class="card-footer">
+                            <div style="float: right;">
+                                <input TYPE="button" class="btn btn-danger btn-sm" style=" width: 80px;"  VALUE="Cancel" onClick="history.go(-1);">
+                                <button type="submit" class="btn btn-success btn-sm" onclick="myFunction()">Save</button>
+                            </div>
+                            <script>
+                            function myFunction() {
+                              alert("Success! Answer successfully added.");
+                            }
+                            </script>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+            <!--End Row-->
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}

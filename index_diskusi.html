@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="col-sm-10" style="margin: auto; background-color: steelblue;">
+          <div class="container-fluid">
+              <div class="btn btn-block" style="border-radius: 20px; width: 100%; height: 945px; margin: auto;">
+                <div type="button" class="btn btn-block" style="width: 100%; font-size: 17px; color: darkslategray; background-color: aliceblue; padding: 10px; margin: auto; margin-top: 90px; border-radius: 20px; border: 1px solid #A9A9A9;">
+                    <div style="margin: auto;">
+                        <div style="margin: auto;">
+                            <p class="btn btn-block" style="color: black; font-family: system-ui; font-size: 15px;">Halo, Selamat Datang <br> {{ data_user[1] }}</p>
+                            <img src="{{ url_for('static', filename='assets/images/Logo-panjang.png')}}" style="min-width: 60%; width: 70%; height: auto;">
+                        </div>
+                        <div style="margin: auto;">
+                            <img src="{{ url_for('static', filename='assets/images/meeting2.gif')}}" style="min-width: 60%; width: 70%; height: auto;">
+                        </div>
+                    <div>
+                    <div style="margin-top: 27px;">
+                        <a href="{{ url_for('beranda') }}" type="button" class="btn btn-info btn-block" style="width: 30%; margin: auto; color: white; font-family: system-ui; font-size: 10px;">Next</a>
+                    </div>
+                    <hr>
+                </div>
+              </div>
+          </div>
+        </div>
+      <!--End Row-->
+    </div>
+
+    <!--start overlay-->
+      <div class="overlay toggle-menu">
+          
+      </div>
+    <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+    <!--</div>-->
+    <!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top" style="background-color: #343a40;"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}

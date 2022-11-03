@@ -1,0 +1,233 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+              <div type="button" class="btn btn-block" style="width: 68%; font-size: 17px; color: darkslategray; background-color:	aliceblue; padding: 10px; margin: auto; margin-top: 20px; border-radius: 20px; border: 3px solid #B0C4DE;">
+                <span class="glyphicon glyphicon glyphicon-stats"></span>
+                <div style="display: block">
+                    <img src="{{ url_for('static', filename='assets/images/Logo-panjang.png')}}" style="width: 40%; height: auto;">
+                </div>
+                <a href="{{ url_for('sop') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">SOP Pengerjaan</a>
+                {% if data_user[2] == 0 %}
+                <a href="{{ url_for('freelancer') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">Data Pengguna</a>
+                {% endif %}
+                <a href="{{ url_for('laporan') }}" type="button" class="btn btn-sm" style="color: aliceblue; background-color: steelblue; margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; border: 1px solid Light Slate Gray; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">Laporan</a>
+                <a class="btn btn-dark btn-sm dropdown-toggle" href="#" style="margin-left: 4px; width: 130px; margin-top: 5px; margin-bottom: 5px; border-radius: 20px; padding: 10px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="border-radius: 10px;">
+                  <a class="dropdown-item" href="http://wa.me/082302529354" style="font-size: 10px;">Contact</a>
+                  <a class="dropdown-item" href="{{ url_for('logout') }}" style="font-size: 10px;">Sign Out</a>
+                </div>
+                <!-- KATEGORI -->
+                <div id="flip">  
+                  <p type="button" class="btn btn-block" style="font-family: system-ui; font-size: 12px; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 20px;  margin: auto;  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;">
+                    BUSINESS CATEGORY<br>
+                    <i class="zmdi zmdi-chevron-down zmdi-hc-lg"></i>
+                  </p>
+                  <div id="panel">
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('makanan') }}">
+                          <img src="{{ url_for('static', filename='assets/images/makanan2.png')}}">
+                          <div class="desc">Makanan</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('minuman') }}">
+                          <img src="{{ url_for('static', filename='assets/images/minuman2.png')}}">  
+                          <div class="desc">Minuman</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('pakaian') }}">
+                          <img src="{{ url_for('static', filename='assets/images/pakaian2.png')}}">
+                          <div class="desc">Pakaian</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('desain') }}">
+                          <img src="{{ url_for('static', filename='assets/images/desain2.png')}}">
+                          <div class="desc">Desain</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('manufaktur') }}">
+                          <img src="{{ url_for('static', filename='assets/images/manufaktur2.png')}}">
+                          <div class="desc">Manufaktur</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('teknologi') }}">
+                          <img src="{{ url_for('static', filename='assets/images/teknology2.png')}}">
+                          <div class="desc">Teknologi</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('pariwisata') }}">
+                          <img src="{{ url_for('static', filename='assets/images/pariwisata2.png')}}">
+                          <div class="desc">Pariwisata</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('transport') }}">
+                          <img src="{{ url_for('static', filename='assets/images/transport2.png')}}">
+                          <div class="desc">Transport</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('onlineshop') }}">
+                          <img src="{{ url_for('static', filename='assets/images/online_shop2.png')}}">
+                          <div class="desc">Online Shop</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('periklanan') }}">
+                          <img src="{{ url_for('static', filename='assets/images/ads2.png')}}">
+                          <div class="desc">Periklanan</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('artikelseo') }}">
+                          <img src="{{ url_for('static', filename='assets/images/artikel_seo2.png')}}">
+                          <div class="desc">Artikel SEO</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="responsive">
+                      <div class="gallery">
+                        <a href="{{ url_for('beranda') }}">
+                          <img src="{{ url_for('static', filename='assets/images/beranda2.png')}}">
+                          <div class="desc">Semua</div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+                <hr>
+                
+          </div>
+        </div>
+      </div>
+      <!--End Row-->
+      <p type="button" class="btn btn-block" style="width: 60%; font-size: 17px; color: darkslategray; background-color: #FFD700; margin: auto; margin-top: 10px; border-radius: 20px;">Notes: Kerjakan soal yang BELUM memiliki jawaban. </p>
+        <!-- NAVBAR MENU -->
+        <p type="button" class="btn btn-block">
+          <a href="{{ url_for('insert_pertanyaan') }}" type="button" class="btn btn-info btn-sm" style="color: darkslategray; border-radius: 20px; width: 130px; margin-bottom: 3px; margin: auto;">Ajukan Pertanyaan</a><br>
+          <a type="button" class="btn btn-sm" style="width: 170px;  color: aliceblue; font-size: 12px; font-family: system-ui; margin: auto; margin-top: 10px; border-radius: 20px;">Kategori Transport</a><br>
+        </p>
+        {% for row in container_transport %}
+        <div class="col-lg-7" style="margin: auto;">
+          <div class="card" style="background-color: aliceblue; border-radius: 20px; border: 3px solid #B0C4DE;">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table>
+                  <tr>
+                    <td class="btn btn-block btn-sm" style="max-width: 470px; margin: auto; border-radius: 20px; background-color: #343a40;">
+                        <a class="btn btn-sm" style=" margin-top: 5px; color: aliceblue; font-family: system-ui; font-size: 9px;"><b>{{ row[1] }}</b></a>
+                        <a class="btn btn-sm" role="button" style="margin-top: 5px; color: aliceblue;  font-size: 9px;"><b>{{ row[2] }}</b></a>
+                        <a class="btn btn-sm" role="button" style=" font-size: 9px; margin-top: 5px; color: aliceblue; "><b>{{ row[6] }}</b></a>
+                    </td>
+                  </tr>
+                </table>
+                <hr color="#DCDCDC">
+                <div>
+                  <label style="color: darkslategray; margin-left: 5px; margin-top: 7px;">Pertanyaan</label><br>
+                  <textarea readonly style=" color: darkslategray;  font-family: Roboto; width: 100%; height: 100px; border: 1px solid	#D3D3D3; border-radius: 7px; padding: 15px; background-color: rgba(255, 255, 255, 0.7); box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;">{{ row[3] }}</textarea>
+                </div>
+                <div>
+                  <label style="color: darkslategray; margin-left: 5px; margin-top: 7px;">Jawaban</label><br>
+                  <textarea readonly="readonly" style=" color: darkslategray;  font-family: Roboto; width: 100%; height: 260px; border:  1px solid	#D3D3D3; border-radius: 7px; padding: 15px; background-color: rgba(255, 255, 255, 0.7); box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;">{{ row[5] }}</textarea>
+                </div>
+                <div style="float: right; margin-top: 5px; margin-bottom: 5px;">
+                  {% if data_user[2] == 1 %}
+                  <a href="{{ url_for('answer', no = row[0]) }}" id=tbl class="btn btn-sm" role="button" style="font-family: system-ui; color: #343a40; border: 1px solid #B0C4DE; border-radius: 7px;  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;"><b>Jawab</b></a>
+                  {% endif %}
+                  {% if data_user[2] == 0 %}
+                  <a href="{{ url_for('koreksi_pertanyaan', no = row[0]) }}" id=tbl class="btn btn-sm" role="button" style="font-family: system-ui; color: #343a40; border: 1px solid #B0C4DE; border-radius: 7px;  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;"><b>Koreksi</b></a>
+                  <a class="btn btn-danger btn-sm" style="font-family: system-ui; color: aliceblue; border: 1px solid #B0C4DE; border-radius: 7px;  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em; border-radius: 7px;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hapus
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: #343a40;">
+                      <p style="text-align: center; font-size: 12px;">Yakin Untuk Hapus  ?</p>
+                      <a class="btn btn-danger btn-sm" href="{{ url_for('delete_pertanyaan', no = row[0]) }}" style="font-size: 10px; margin-left: 26px;">Lanjut Hapus</a><br>
+                      <a class="btn btn-light btn-sm" href="{{ url_for('beranda') }}" style="font-size: 10px; margin-left: 40px; margin-top: 5px;">Batalkan</a>
+                    </div>
+                  {% endif %}
+                </div><br>
+
+                <table style="margin-left: 8px; margin-top: 10px;">
+                  <tr>
+                    <td>
+                        <label style="color: darkslategray; margin-left: 5px; margin-top: 7px;">Penjawab</label><br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="btn btn-sm" style="background-color: LightSlateGray; color: white; font-family: Roboto; margin-top: 5px;" role="button">{{ row[4] }}</td>
+                  </tr>
+                </table>
+                <table style="margin-left: 8px; margin-top: 10px;">
+                  <tr>
+                    <td>
+                        <label style="color: darkslategray; margin-left: 5px; margin-top: 7px;">Status</label><br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="btn btn-sm" style="color: aliceblue; background-color: #3CB371;  font-family: Roboto; margin-top: 5px;" role="button">{{ row[7] }}</td>
+                  </tr>
+                </table>
+                <table style="margin-left: 8px;  margin-top: 10px;">
+                  <tr>
+                    <td>
+                        <label style="color: darkslategray; margin-left: 5px; margin-top: 7px;">Catatan</label><br>
+                    </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <textarea readonly style="margin-top: 5px; color: darkslategray;  font-family: Roboto; width: 100%; height: 60px; border:  1px solid	#D3D3D3; border-radius: 7px; padding: 15px; background-color: rgba(255, 255, 255, 0.7);  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;">{{ row[8] }}</textarea>
+                     </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    <!--start overlay-->
+      <div class="overlay toggle-menu">
+          
+      </div>
+    <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+    </div>
+    <!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top" style="background-color: #343a40;"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+{% include 'footer.html' %}

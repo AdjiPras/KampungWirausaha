@@ -1,0 +1,64 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col-lg-4" style="margin: auto; margin-top: 50px;">
+                <div class="card">
+                  <div class="card-body" style="background-color: aliceblue; border-radius: 7px; border: 3px solid #B0C4DE;">
+                        <div>
+                            <p type="button" class="btn btn-block" style="width: 100%; font-size: 9px; color: darkslategray; background-color: #FFD700; margin: auto; margin-top: 10px; border-radius: 20px;">Notes: Akses Khusus Admin</p>
+                        </div>
+                        <div style="margin-bottom: 10px; margin-top: 10px;">
+                            <a href="{{ url_for('laporan') }}" type="button" class="btn btn-dark btn-block btn-sm" style="border-radius: 20px; margin: auto; font-size: 9px; width: 60px;">Back</a>
+                        </div>
+                        {% if data_user[2] == 0 %}
+                        <form role="form" action="{{ url_for('update_lp') }}" method="POST">
+                            <div class="card-body">
+                              <div class="form-group">
+                                <label for="username" style="color: darkslategray;">Username</label>
+                                <input type="text" readonly=readonly style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="username" name="username" value="{{ data_lp[1] }}">
+                              </div>
+                              <div class="form-group">
+                                <label for="text_laporan" style="color: darkslategray;">Laporan</label>
+                                <textarea readonly style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; height: 100px; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="text_laporan" name="text_laporan" rows="5" value="">{{ data_lp[2] }}</textarea>
+                              </div>
+                              <input type="hidden" class="form-control" id="tanggal_lapor" name="tanggal_lapor">
+                              <div class="form-group col-md-14">
+                                <label for="status" style="color: darkslategray;">Status</label><br>
+                                <select style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="status" name="status" value="{{ data_lp[4] }}">
+                                  <option style="background-color: white; color: darkslategray;" value="">Pilih Status :</option>
+                                  <option style="background-color: white; color: darkslategray;" value="Diterima">Diterima</option>
+                                  <option style="background-color: white; color: darkslategray;" value="Proses">Proses</option>
+                                  <option style="background-color: white; color: darkslategray;" value="Selesai">Selesai</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <input type="hidden" class="form-control" id="no" name="no" value="{{ data_lp[0] }}">
+                              </div>
+                              <div class="card-footer">
+                                <div style="float: right;">
+                                    <input TYPE="button" class="btn btn-danger btn-sm" style=" width: 80px;"  VALUE="Cancel" onClick="history.go(-1);">
+                                    <button type="submit" class="btn btn-success btn-sm" onclick="myFunction()">Save</button>
+                                </div>
+                                <script>
+                                    function myFunction() {
+                                      alert("Success! The Report Has Been Updated.");
+                                    }
+                                </script>
+                              </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+            <!--End Row-->
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}

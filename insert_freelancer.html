@@ -1,0 +1,66 @@
+{% include 'header.html' %}
+    <div>
+    <div>
+    <div>
+        <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col-lg-4" style="margin: auto; margin-top: 50px;">
+                <div class="card">
+                  <div class="card-body" style="background-color: aliceblue; border-radius: 7px;  border: 3px solid #B0C4DE;">
+                        <div>
+                            <p type="button" class="btn btn-block" style="width: 100%; font-size: 9px; color: darkslategray; background-color: #FFD700; margin: auto; margin-top: 10px; border-radius: 20px;">Notes: Akses Khusus Admin</p>
+                        </div>
+                        <div style="margin-bottom: 10px; margin-top: 10px;">
+                            <a href="{{ url_for('beranda') }}" type="button" class="btn btn-dark btn-block btn-sm" style="border-radius: 20px; margin: auto; font-size: 9px; width: 60px;">Back</a>
+                        </div>
+                        {% if data_user[2] == 0 %}
+                        <form role="form" action="{{ url_for('insert_freelancer') }}" method="POST">
+                          <div class="card-body">
+                            <input type="hidden" name="id_freelancer" class="form-control">
+                            <div class="form-group">
+                              <label for="username"  style="color: darkslategray; margin-left: 8px;">Username</label><br>
+                              <input type="text" style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="username" name="username" placeholder="Masukkan Username...">
+                            </div>
+                            <div class="form-group">
+                              <label for="password" style="color: darkslategray; margin-left: 8px;">Password</label><br>
+                              <input type="text" style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="password" name="password" placeholder="Masukkan Password...">
+                            </div>
+                            <div class="form-group">
+                              <label for="nama" style="color: darkslategray; margin-left: 8px;">Nama</label><br>
+                              <input type="text" style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="nama" name="nama" placeholder="Masukkan Nama...">
+                            </div>
+                            <div class="form-group">
+                              <label for="kategori" style="color: darkslategray; margin-left: 8px;">Tipe Akses</label><br>
+                              <select style="background-color: white; color: darkslategray; border: 1px solid #D3D3D3; border-radius: 7px; width:100%; padding: 10px; box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;" id="tipe_akses" name="tipe_akses">
+                                <option style="background-color: white; color: darkslategray;" value="">Pilih Tipe Akses :</option>
+                                <option style="background-color: white; color: darkslategray;" value="0">Admin</option>
+                                <option style="background-color: white; color: darkslategray;" value="1">Freelencer</option>
+                                <option style="background-color: white; color: darkslategray;" value="2">Penanya</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- /.card-body -->
+    
+                          <div class="card-footer">
+                            <div style="float: right;">
+                                <input TYPE="button" class="btn btn-danger btn-sm" style=" width: 80px;"  VALUE="Cancel" onClick="history.go(-1);">
+                                <button type="submit" class="btn btn-success btn-sm" onclick="myFunction()">Add</button>
+                            </div>
+                            <script>
+                                function myFunction() {
+                                  alert("Success! A New User Has Been Added.");
+                                }
+                            </script>
+                          </div>
+                        </form>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             </div>
+              <!--End Row-->
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}

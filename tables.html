@@ -1,0 +1,75 @@
+{% include 'header.html' %}
+    <div class="container-fluid">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Semua Pertanyaan</h5>
+              <div class="table-responsive">
+                <table id="example" class="table dt-responsive nowrap">
+                  <thead>
+                    <tr style="text-align: center;">
+                      <th>No</th>
+                      <th>Username</th>
+                      <th>Kategori</th>
+                      <th >Pertanyaan</th>
+                      <th>Penjawab</th>
+                      <th>Jawaban</th>
+                      <th>Time</th>
+                      <th>Ranking</th>
+                      <th>Catatan</th>
+                      <th>Action</th>
+                      <th colspan="2">Koreksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% set no=namespace(value=1) %}
+                    {% for row in container_pertanyaan %}
+                    <tr>
+                      <td style="text-align: center;">{{ no.value }}</td>
+                      {% set no.value=no.value+1 %}
+                      <td>{{ row[1] }}</td>
+                      <td style="text-align: center;">{{ row[2] }}</td>
+                      <td>
+                        <div>
+                          <textarea readonly style="width: 400px; height: 150px; border-radius: 7px; padding: 20px;">{{ row[3] }}</textarea>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">{{ row[4] }}</td>
+                      <td>
+                        <div>
+                          <textarea readonly style="width: 400px; height: 150px; border-radius: 7px; padding: 20px;">{{ row[5] }}</textarea>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">{{ row[6] }}</td>
+                      <td style="text-align: center;">{{ row[7] }}</td>
+                      <td>
+                        <div>
+                          <textarea readonly style="width: 400px; height: 150px; border-radius: 7px; padding: 20px; ">{{ row[8] }}</textarea>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">{{ row[9] }}<a href="{{ url_for('update_pertanyaan', no = row[0]) }}" class="btn btn-success btn-sm" role="button">Jawab</a></td>
+                      <td style="text-align: center;">{{ row[10] }}<a href="{{ url_for('update_pertanyaan', no = row[0]) }}" class="btn btn-dark btn-sm" role="button">Koreksi</a><br>
+                        {% if data_nama[3] == 0 %}<a href="{{ url_for('delete_pertanyaan', no = row[0]) }}" class="btn btn-danger btn-sm" role="button" style="margin-top: 3px;">Hapus</a></td>{% endif %}
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div><!--End Row-->
+
+
+	  <!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+{% include 'footer.html' %}
